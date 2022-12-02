@@ -5,6 +5,7 @@ import { Keyboard } from "./components/Keyboard";
 import words from "./data/wordList.json";
 
 function App() {
+  // escolhe a palavra do arquivo json aleatoriamente
   const [wordToGuess, setWordToGuess] = useState(() => {
     return words[Math.floor(Math.random() * words.length)];
   });
@@ -20,6 +21,8 @@ function App() {
     .split("")
     .every((letter) => guessedLetters.includes(letter));
 
+    // adds the guessed letter, not letting it repeat the action
+    //  if it is the winner or loser.
   const addGuessedLetter = useCallback(
     (letter: string) => {
       if (guessedLetters.includes(letter) || isLoser || isWinner) return;
@@ -29,6 +32,7 @@ function App() {
     [guessedLetters, isLoser, isWinner]
   );
 
+  // logic for the physical keyboard
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       const key = e.key;

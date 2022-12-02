@@ -20,6 +20,8 @@ export function HangmanWord({
         fontFamily: "monospace",
       }}
     >
+      {/* logic to guess the randomly chosen word.  
+      Splits the string into an array with the letters.*/}
       {wordToGuess.split("").map((letter, index) => (
         <span style={{ borderBottom: ".1em solid black" }} key={index}>
           <span

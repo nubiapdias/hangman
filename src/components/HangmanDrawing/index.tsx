@@ -1,3 +1,4 @@
+//Body parts
 const HEAD = (
   <div
     style={{
@@ -95,6 +96,7 @@ export function HangmanDrawing({ numberOfGuesses }: HangmanDrawingProps) {
   return (
     <div style={{ position: "relative" }}>
       {BODY_PARTS.slice(0, numberOfGuesses)}
+      {/* gibbet */}
       <div
         style={{
           height: "50px",
